@@ -1,0 +1,24 @@
+<IfModule mod_ssl.c>
+        <VirtualHost _default_:443>
+                ServerAdmin {{ admin_email }}
+                ServerName {{ http_host }}
+
+                DocumentRoot /var/www/{{ http_host }}
+
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+                SSLEngine on
+
+                SSLCertificateFile      /etc/ssl/{{ ssl_sertificates_dir }}/{{ ssl_sertificate_name }}.pem
+                SSLCertificateKeyFile /etc/ssl/{{ ssl_sertificates_dir }}/{{ ssl_sertificate_name }}.key
+
+                <FilesMatch "\.(cgi|shtml|phtml|php)$">
+                                SSLOptions +StdEnvVars
+                </FilesMatch>
+                <Directory /usr/lib/cgi-bin>
+                                SSLOptions +StdEnvVars
+                </Directory>
+
+        </VirtualHost>
+</IfModule>

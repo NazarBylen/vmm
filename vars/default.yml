@@ -1,0 +1,25 @@
+---
+# System
+app_user: "vagrant"
+admin_email: "nazarkobilenko@gmail.com"
+
+# Apache
+http_host: "mydomain.local"
+http_conf: "mydomain_local.conf"
+http_port: "80"
+http_owner: "www-data"
+http_group: "www-data"
+
+# PHP
+php_modules: [ 'php8.1-mysql', 'php8.1-curl', 'php8.1-gd', 'php8.1-mbstring', 'php8.1-xml', 'php8.1-xmlrpc', 'php8.1-soap', 'php8.1-intl', 'php8.1-zip' ]
+
+# MySQL
+mysql_root_password: "root"
+mysql_wordpress_user: "wordpress_user"
+mysql_wordpress_hostname: "192.168.56.11"
+mysql_wordpress_password: "root"
+mysql_wordpress_db: "wordpress_db"
+
+# SSL
+ssl_sertificates_dir: "selfsigned"
+ssl_sertificate_name: "apache-selfsigned"
