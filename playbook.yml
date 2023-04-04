@@ -87,9 +87,9 @@
       tags: [ apache ]
 
     - name: Enable Apache Event modules
-      shell: /usr/sbin/a2enmod proxy_fcgi setenvif
+      shell: /usr/sbin/a2enmod mpm_event proxy_fcgi setenvif
       notify: Reload Apache
-      tags: [ apache ]
+      tags: [ apache, php ]
 
     # Configure Apache to use SSL
     - name: Create an Apache Configuration Snippet with Strong Encryption Settings
