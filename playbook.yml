@@ -168,11 +168,6 @@
     - name: Restart php-fpm
       command: service php8.1-fpm restart
 
-    - name: restart mysql
-      service: name=mysql
-        enabled=yes
-        state=restarted
-
 # DB HOST
 - hosts: db
   become: true
@@ -210,7 +205,7 @@
         login_password: "{{ mysql_root_password }}"
       tags: [ mysql ]
 
-    # allowed access for remove connections
+    # allowed access for remote connections
     - name: Copy mysqld.cnf into MySQL conf directory
       template:
         src: "files/mysqld.cnf"
