@@ -87,7 +87,7 @@
       tags: [ apache ]
 
     - name: Enable Apache Event modules
-      shell: /usr/sbin/a2enmod mpm_event proxy_fcgi setenvif
+      shell: /usr/sbin/a2enmod proxy_fcgi setenvif
       notify: Reload Apache
       tags: [ apache, php ]
 
